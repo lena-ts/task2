@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Фильмы 2018</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link href="css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Page Content -->
+  <div class="main-container">
+	  <div class="container">
+	    <div class="row">
+			<div class="col-md-6 col-sm-12 column column-list">
+				<div class="articles-header">
+					<div class="title"><h2>Фильмы 2018</h2></div>
+					<div class="genres">
+						<span class="active">Все</span>
+						<span>Боевик</span> 
+						<span>Комедия</span>
+						<span>Драма</span>
+						<span>Ужасы</span>
+					</div>
+				</div>
+				<div class="articles"><div class="row"></div></div>
+			</div>
+			<div class="col-md-6 col-sm-12 column column-content">
+				<div class="article-selected_header">
+					<div class="article-selected_title"><h2></h2></div>
+					<div class="article-selected_genre gray-text">2018, <span></span><div class="age-verification-label">18+</div></div>
+				</div>
+				<div class="tabs">
+					<ul class="nav nav-tabs">
+					  <li class="active"><a data-toggle="tab" href="#home">Описание</a></li>
+					  <li><a data-toggle="tab" href="#menu1"><span class="colored-text">115</span> Отзывов</a></li>
+					</ul>
+					
+					<div class="tab-content">
+					  <div id="home" class="tab-pane fade in active show">
+					    <div class="article-selected_trailer"><div class="play-button"><span class="play-button_icon"></span>Смотреть трейлер</div></div>
+					  </div>
+					  <div id="menu1" class="tab-pane fade">
+					    <h3>Menu 1</h3>
+					    <p>Some content in menu 1.</p>
+					  </div>
+					</div>					
+				</div>
+			</div>
+	    </div>
+	  </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+<!--   <script src="vendor/jquery/jquery.min.js"></script> -->
+  <script src="vendor/jquery/jquery.slim.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+	  let listWrapper = document.querySelector('.column-list .articles .row');
+	  
+	  let requestURL = 'movies.json';
+	  let request = new XMLHttpRequest();
+    
+	  request.open('GET', requestURL);
+	  request.responseType = 'json';
+	  request.send();    
+	
+	  request.onload = function() {
+	 	 let moviesList = request.response;
+	 	 populateMoviesList(moviesList);
+		}	 
+
+/*
+	$.getJSON('movies.json', function(jsonObj) {
+	    populateMoviesList(jsonObj);
+	}); 
+*/
+	  	       
+	function populateMoviesList(jsonObj) {	       
+       for (var i = 0; i < jsonObj.length; i++) {
+		  let movieItem = document.createElement('article'),
+		      movieItemName = document.createElement('h3'),
+		  	  movieItemImageWrapper = document.createElement('div'),
+		  	  movieItemImage = document.createElement('img'),
+		  	  movieItemRating = document.createElement('div'),
+		  	  movieItemGenre = document.createElement('div'); 	  		  	  
+		  	  	
+		  	  movieItem.className = "article col-lg-4 col-md-6 col-sm-12";	
+		  	  movieItemImageWrapper.className = "article-image-wrapper";
+		  	  movieItemRating.className = "article-rating";
+		  	  movieItemGenre.className = "article-genre";
+		  	  
+		      movieItemName.textContent = jsonObj[i].title;
+		      movieItemImage.src = jsonObj[i].img;
+		      movieItemRating.textContent = jsonObj[i].rating;
+		      movieItemGenre.textContent = jsonObj[i].genre;
+		      	      
+		      movieItemImageWrapper.appendChild(movieItemImage);	
+		      movieItemImageWrapper.appendChild(movieItemRating);	
+		      
+		      movieItem.appendChild(movieItemImageWrapper);	
+		      movieItem.appendChild(movieItemName);	
+		      movieItem.appendChild(movieItemGenre);	 
+		      
+		      listWrapper.appendChild(movieItem);        
+       }
+       
+       
+       
+       	$('article').click(function(){
+	       	$(this).siblings().removeClass('active');
+			$(this).addClass('active');
+			
+			let activeTitle = $(this).find('h3').text(),
+				activeGenre = $(this).find($('.article-genre')).text(),
+				activeImage = $(this).find($('img')).attr('src');
+			
+			$('.article-selected_title h2').text(activeTitle);
+			$('.article-selected_genre span').text(activeGenre);
+			$('.article-selected_trailer').css('background-image', 'url(' + activeImage+ ')');
+		});	
+		
+		$('article').eq(0).addClass('active').click();
+		
+	} 
+  </script>
+
+</body>
+
+</html>
