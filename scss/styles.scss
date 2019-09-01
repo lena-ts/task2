@@ -243,8 +243,8 @@ h2 {
 			li {
 				position: relative;
 				display: inline-block;
-				overflow: hidden;
 				@include border-radius(6px);
+				overflow: hidden;
 				width: 144px;
 				height: 101px;
 				cursor: pointer;
@@ -253,7 +253,17 @@ h2 {
 					width: auto;
 					height: 100%;
 					@include transition(0.2s);
+					@include border-radius(6px);
 				}
+				
+				@media screen and (-webkit-min-device-pixel-ratio:0) {
+				/* Safari-Opera specific declarations here */
+					img {
+						width: auto;
+						height: 100%;
+						@include border-radius(6px);
+					}				
+				}				
 				
 				.overlay-text {
 					position: absolute;
@@ -269,6 +279,7 @@ h2 {
 					color: white;
 					background: rgba(40,40,40, 0.65);
 					z-index: 2;
+					
 				}
 				
 				&:hover {

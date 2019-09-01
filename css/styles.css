@@ -505,10 +505,10 @@ h2 {
     .article-selected_thumbnails li {
       position: relative;
       display: inline-block;
-      overflow: hidden;
       -webkit-border-radius: 6px;
       -ms-border-radius: 6px;
       border-radius: 6px;
+      overflow: hidden;
       width: 144px;
       height: 101px;
       cursor: pointer; }
@@ -517,7 +517,19 @@ h2 {
         height: 100%;
         -webkit-transition: 0.2s;
         -ms-transition: 0.2s;
-        transition: 0.2s; }
+        transition: 0.2s;
+        -webkit-border-radius: 6px;
+        -ms-border-radius: 6px;
+        border-radius: 6px; }
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        .article-selected_thumbnails li {
+          /* Safari-Opera specific declarations here */ }
+          .article-selected_thumbnails li img {
+            width: auto;
+            height: 100%;
+            -webkit-border-radius: 6px;
+            -ms-border-radius: 6px;
+            border-radius: 6px; } }
       .article-selected_thumbnails li .overlay-text {
         position: absolute;
         top: 0;
