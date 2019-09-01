@@ -34,7 +34,7 @@
 						<span data-genre="ужасы">Ужасы</span>
 					</div>
 				</div>
-				<div class="articles"><div class="row"></div></div>
+				<div class="articles"><div class="row" id="articles-list"></div></div>
 			</div>
 			<div class="col-md-6 col-sm-12 column column-content">
 				<div class="article-selected_header">
@@ -160,7 +160,8 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   
   <script>
-	  let listWrapper = document.querySelector('.column-list .articles .row');
+// 	  let listWrapper = document.querySelector('.column-list .articles .row');
+	  let listWrapper = document.getElementById('articles-list');
 	  
 	  let requestURL = 'movies.json';
 	  let request = new XMLHttpRequest();
