@@ -160,24 +160,23 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   
   <script>
-// 	  let listWrapper = document.querySelector('.column-list .articles .row');
-	  let listWrapper = document.getElementById('articles-list');
+	  var listWrapper = document.querySelector('.column-list .articles .row');
 	  
-	  let requestURL = 'movies.json';
-	  let request = new XMLHttpRequest();
+	  var requestURL = 'movies.json';
+	  var request = new XMLHttpRequest();
     
 	  request.open('GET', requestURL);
 	  request.responseType = 'json';
 	  request.send();    
 	
 	  request.onload = function() {
-	 	 let moviesList = request.response;
+	 	 var moviesList = request.response;
 	 	 populateMoviesList(moviesList);
 		}	 
   	       
 	function populateMoviesList(jsonObj) {	       
        for (var i = 0; i < jsonObj.length; i++) {
-		  let movieItem = document.createElement('article'),
+		  var movieItem = document.createElement('article'),
 		      movieItemName = document.createElement('h3'),
 		  	  movieItemImageWrapper = document.createElement('div'),
 		  	  movieItemImage = document.createElement('img'),
@@ -208,7 +207,7 @@
 	       	$(this).siblings().removeClass('active');
 			$(this).addClass('active');
 			
-			let activeTitle = $(this).find('h3').text(),
+			var activeTitle = $(this).find('h3').text(),
 				activeGenre = $(this).find($('.article-genre')).text(),
 				activeImage = $(this).find($('img')).attr('src'),
 				activeRating = $(this).find($('.article-rating')).text();
@@ -232,10 +231,10 @@
 	$('.genres span').click(function(){
 		$(this).addClass('active');
 		$(this).siblings().removeClass('active');
-		let search = $(this).attr('data-genre');
+		var search = $(this).attr('data-genre');
 		
 		for (i = 0; i <= $('.article').length -1; i++) {
-			let str = $('.article').eq(i).find($('.article-genre')).text(),
+			var str = $('.article').eq(i).find($('.article-genre')).text(),
 				result = str.match( search );
 			
 			if ( result ) $('.article').eq(i).show();	
