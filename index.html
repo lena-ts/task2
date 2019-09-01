@@ -27,11 +27,11 @@
 				<div class="articles-header">
 					<div class="title"><h2>Фильмы 2018</h2></div>
 					<div class="genres">
-						<span class="active">Все</span>
-						<span>Боевик</span> 
-						<span>Комедия</span>
-						<span>Драма</span>
-						<span>Ужасы</span>
+						<span class="active" data-genre="all">Все</span>
+						<span data-genre="боевик">Боевик</span> 
+						<span data-genre="комедия">Комедия</span>
+						<span data-genre="драма">Драма</span>
+						<span data-genre="ужасы">Ужасы</span>
 					</div>
 				</div>
 				<div class="articles"><div class="row"></div></div>
@@ -59,53 +59,91 @@
 						    <li><img src="movie/img/02.jpeg"></li>
 						    <li><img src="movie/img/03.jpeg"></li>
 						    <li><img src="movie/img/04.jpeg"></li>
-						    <li><img src="movie/img/02.jpeg"></li>
+						    <li>
+							    <div class="overlay-text">+48</div>
+							    <img src="movie/img/02.jpeg">
+						    </li>
 					    </ul>
 					    
 					    <div class="article-selected_content">
-						  <div> <strong> Режиссер: </strong><a href="#">Мартин Макдонах</a></div>
+						   <div><span class="gray-text" >Время</span><span class="value">115 мин.</span></div>
+						  <div> <span class="gray-text"> Режиссер </span><a href="#" class="value">Мартин Макдонах</a></div>
 
-						  <div><strong>В ролях: </strong><a href="#">Дав Камерон</a>, Аквафина, <a href="#">Питер Динклэйдж</a>, Тиффани Хэддиш, Билл Хейдер, Майя Рудольф, <a href="#">Ники Минаж</a>, Джейсон Судейкис, <a href="#">Стерлинг К. Браун</a> 
+						  <div><span class="gray-text">В ролях </span><div class="value"><a href="#">Дав Камерон</a>, Аквафина, <a href="#">Питер Динклэйдж</a>, Тиффани Хэддиш, Билл Хейдер, Майя Рудольф, <a href="#">Ники Минаж</a>, Джейсон Судейкис, <a href="#">Стерлинг К. Браун</a> </div>
 					    </div></div>
 					  </div>
 					  <div id="menu1" class="tab-pane fade">					    
 					    <div class="review-statistic">
 						    <div class="positive">
-							    <span class="gray-text text-small"><a href="#" style="color: black; text-decoration: underline;">Положительные</a></span>
+							    <span class="gray-text text-small"><a href="#" style="color: black;">Положительные</a></span>
 							    <a href="#">83</a>
 						    </div>
 						    <div class="neutral">
-							    <span class="gray-text text-small"><a href="#" style="color: black; text-decoration: underline;">Нейтральные</a></span>
+							    <span class="gray-text text-small"><a href="#" style="color: black;">Нейтральные</a></span>
 							    <a href="#" style="color: gray">15</a>
 						    </div>						    
 						    <div class="negative">
-							    <span class="gray-text text-small"><a href="#" style="color: black; text-decoration: underline;">Отрицательные</a></span>
+							    <span class="gray-text text-small"><a href="#" style="color: black;">Отрицательные</a></span>
 							    <a href="#" style="color: red">17</a>
 						    </div>						    
 					    </div>
 					    <div class="reviews-list">
-						    <div class="review">							    
-							    <a href="#" class="author">Annie N.</a>
-							    <span class="small-text gray-text">12 августа 2018</span>
-							    <div class="text text-positive">
-								    <div class="text-rating">8 из 10</div>
-								    <div class="text-content">
-								    В 2007 году Мартин МакДона придумал, написал и снял «Залечь на дно в Брюгге» - фильм, который понравился многим зрителям, но не был высоко оценен критиками. Ровно через 5 лет выходит его вторая работа под названием «Семь психопатов», которая еще больше понравилась зрителям, но совсем не произвела впечатления на критиков. Прошло еще 5 лет и МакДона снимает «Три билборда на границе Эббинга, Миссури», поразивший зрителей наповал! Жизнь как она есть не так интересна для обывателя как события связаны с форс-мажором, пожары, наводнения, истории убийств — все это интереснее и, самое главное, легче для осмысления сценаристами.		
-								    </div>						
-							    </div>	
+						    <div class="review">		
+							    <div class="author-wrapper">		
+								 <div class="author-avatar"><img src="movie/user-s-5.jpg"></div>
+									 <div class="author-info">		    
+										 <a href="#" class="author-name">Марина Н.</a>
+										 <div>
+											 <span class="gray-text small-text">рецензии</span>
+											 <span class="gray-text small-text">оценки</span>
+											 <span class="gray-text small-text">друзья</span>
+										 </div>										
+									 </div> 
+									 <div class="author-date">
+										 <div class="text-rating">8</div>
+										  <div class="small-text gray-text">12 августа 2018</div>
+										  
+									 </div>
+							    </div>
+							    <div class="text-wrapper">
+								    
+								    <div class="text text-positive">
+									    
+									    <div class="text-content">
+									    В 2007 году Мартин МакДона придумал, написал и снял «Залечь на дно в Брюгге» - фильм, который понравился многим зрителям, но не был высоко оценен критиками. Ровно через 5 лет выходит его вторая работа под названием «Семь психопатов», которая еще больше понравилась зрителям, но совсем не произвела впечатления на критиков. Прошло еще 5 лет и МакДона снимает «Три билборда на границе Эббинга, Миссури», поразивший зрителей наповал! Жизнь как она есть не так интересна для обывателя как события связаны с форс-мажором, пожары, наводнения, истории убийств — все это интереснее и, самое главное, легче для осмысления сценаристами.		
+									    </div>						
+								    </div>	
+							    </div>
 							    		    
 						    </div>
-						    <div class="review">							    
-							    <a href="#" class="author">Peter B.</a>
-							    <span class="small-text gray-text">12 августа 2018</span>
-							    <div class="text text-negative">
-								    <div class="text-rating">4 из 10</div>
-								    <div class="text-content">
-								    Рискну пойти против общей тенденции и сказать, что мне скорее НЕ понравился расхваленный критиками фильм «Три билборда на границе Эббинга, Миссури». Что там есть: яркие характеры, причём все актёры выложились по полной, персонажи никак ходульными не назовёшь – скорее чуть гротескными, но какая драма без этого? 		
-								    </div>						
-							    </div>	
+						    <div class="review">		
+							    <div class="author-wrapper">		
+								 <div class="author-avatar"><img src="movie/user-s-2.jpg"></div>
+									 <div class="author-info">		    
+										 <a href="#" class="author-name">Миша П.</a>
+										 <div>
+											 <span class="gray-text small-text">рецензии</span>
+											 <span class="gray-text small-text">оценки</span>
+											 <span class="gray-text small-text">друзья</span>
+										 </div>										
+									 </div> 
+									 <div class="author-date">
+										 <div class="text-rating text-rating__negative">4</div>
+										  <div class="small-text gray-text">12 августа 2018</div>
+										  
+									 </div>
+							    </div>
+							    <div class="text-wrapper">
+								    
+								    <div class="text text-negative">
+									    
+									    <div class="text-content">
+									   Рискну пойти против общей тенденции и сказать, что мне скорее НЕ понравился расхваленный критиками фильм «Три билборда на границе Эббинга, Миссури». Что там есть: яркие характеры, причём все актёры выложились по полной, персонажи никак ходульными не назовёшь – скорее чуть гротескными, но какая драма без этого? 		
+									    </div>						
+								    </div>	
+							    </div>
 							    		    
-						    </div>						    
+						    </div>						    					    
 					    </div>
 					  </div>
 					</div>					
@@ -116,8 +154,9 @@
   </div>
 
   <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <!--   <script src="vendor/jquery/jquery.min.js"></script> -->
-  <script src="vendor/jquery/jquery.slim.min.js"></script>
+<!--  <script src="vendor/jquery/jquery.slim.min.js"></script> -->
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   
   <script>
@@ -163,9 +202,7 @@
 		      
 		      listWrapper.appendChild(movieItem);        
        }
-       
-       
-       
+     
        	$('article').click(function(){
 	       	$(this).siblings().removeClass('active');
 			$(this).addClass('active');
@@ -184,9 +221,29 @@
 		$('article').eq(0).addClass('active').click();		
 	} 
 	
+	//Tabs
 	$('.nav-tabs li').click(function(){
 		$(this).siblings().removeClass('active');
 		$(this).addClass('active');
+	});
+	
+	//Genres filter
+	$('.genres span').click(function(){
+		$(this).addClass('active');
+		$(this).siblings().removeClass('active');
+		let search = $(this).attr('data-genre');
+		
+		for (i = 0; i <= $('.article').length -1; i++) {
+			let str = $('.article').eq(i).find($('.article-genre')).text(),
+				result = str.match( search );
+			
+			if ( result ) $('.article').eq(i).show();	
+			else $('.article').eq(i).hide();
+		}
+		
+		if ($(this).attr('data-genre') == 'all') {
+			$('.article').show();
+		}		
 	});
   </script>
 
